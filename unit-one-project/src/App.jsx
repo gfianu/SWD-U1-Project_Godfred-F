@@ -11,6 +11,7 @@ import LectureDetail from "./components/LectureDetail";
 import QuizList from "./components/QuizList";
 import QuizDetail from "./components/QuizDetail";
 import Dashboard from "./components/Dashboard";
+import Notes from "./pages/Notes";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/lectures" element={<LectureList />} />
           <Route path="/lectures/:id" element={<LectureDetail />} />
+          <Route path="/notes" element={<Notes />} />
           <Route path="/quizzes" element={<QuizList />} />
           <Route path="/quizzes/:id" element={<QuizDetail />} />
           <Route path="/dashboard" element={<Dashboard />} />
