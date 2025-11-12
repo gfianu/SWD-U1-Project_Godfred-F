@@ -1,4 +1,4 @@
-/* ---------GLOBAL RESET-------- */
+/* ---------- GLOBAL RESET ---------- */
 
 * {
   margin: 0;
@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-/* ---------GLOBAL COLORS-------- */
+/* ---------- GLOBAL COLORS ---------- */
 
 :root {
   --primary: #2563eb;
@@ -23,7 +23,7 @@
   --danger: #dc2626;
 }
 
-/* ---------GLOBAL TYPOGRAPHY-------- */
+/* ---------- GLOBAL TYPOGRAPHY & BODY STYLES ---------- */
 
 body {
   font-family: "Inter", "Open Sans", sans-serif;
@@ -33,7 +33,7 @@ body {
   padding: 1rem;
 }
 
-/* ---------BASIC ELEMENTS-------- */
+/* ---------- BASIC ELEMENTS ---------- */
 
 h1, h2, h3 {
     margin-bottom: 0.5rem;
@@ -63,7 +63,7 @@ button:hover {
     background: var(--primary-dark);
 }
 
-/* ---------UTILITY CLASSES-------- */
+/* ---------- GLOBAL LAYOUT HELPERS ---------- */
 
 .container {
     max-width: 1200px;
@@ -81,14 +81,26 @@ button:hover {
     justify-content: center;
 }
 
-.grid {
-    display: grid;
-}
-
 .flex-between {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
 }
 
 .grid-3 {
@@ -97,3 +109,49 @@ button:hover {
     gap: 1.5rem;
 }
 
+/* ---------- RESPONSIVE DESIGN (TABLET & MOBILE) ---------- */
+
+@media (max-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: 0.5rem;
+    }
+
+    header, footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+/* ---------- INTERACTIVITY & ANIMATION ---------- */
+
+button, .lecture-card, .dashboard-card {
+    transition: all 0.3s ease;
+}
+
+button:hover, .lecture-card:hover, .dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+a:hover {
+    opacity: 0.85;
+}

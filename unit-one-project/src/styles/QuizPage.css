@@ -32,3 +32,29 @@
     justify-content: center;
     margin-top: 1.5rem;
 }
+
+/* ---------- Responsive Design ---------- */
+@media (max-width: 1024px) {
+  .quiz-page {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+    .quiz-page {
+        padding: 1rem;
+    }
+
+    .quiz-question {
+        font-size: 1rem;
+    }
+
+    .quiz-options li {
+        font-size: 0.95rem;
+        padding: 0.6rem;
+    }
+
+    .quiz-submit {
+        margin-top: 1rem;
+    }
+}
