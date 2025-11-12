@@ -31,3 +31,34 @@
     border-top: 1px solid var(--primary-light);
     padding-top: 1rem;
 }
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 1024px) {
+    .lecture-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .lectures {
+        padding: 1rem;
+    }
+
+    .lecture-list {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .lecture-card {
+        padding: 0.75rem;
+    }
+
+    .lecture-title {
+        font-size: 1.1rem;
+    }
+
+    .comment-section {
+        padding-top: 0.75rem;
+    }
+}
