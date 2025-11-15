@@ -6,17 +6,18 @@ const quizzesData = [
     description: "Test your knowledge of hybridization, bonding, and molecular geometry.",
     questions: [
       {
-        question: "What is the hybridization of carbon in methane (CH4)?",
+        question: "What is the hybridization of carbon in methane (CH₄)?",
         options: ["sp", "sp2", "sp3", "sp3d"],
-        answer: "sp3",
+        correct: "sp3",
       },
       {
         question: "Which type of bond involves sharing of electrons?",
         options: ["Ionic", "Covalent", "Metallic", "Hydrogen"],
-        answer: "Covalent",
+        correct: "Covalent",
       },
     ],
   },
+
   {
     id: 2,
     title: "Acids and Bases",
@@ -25,16 +26,17 @@ const quizzesData = [
     questions: [
       {
         question: "Which of the following is a Lewis acid?",
-        options: ["NH3", "BF3", "OH-", "H2O"],
-        answer: "BF3",
+        options: ["NH3", "BF3", "OH−", "H2O"],
+        correct: "BF3",
       },
       {
-        question: "What is the conjugate base of H2SO4?",
-        options: ["HSO4-", "SO4²-", "H3O+", "OH-"],
-        answer: "HSO4-",
+        question: "What is the conjugate base of H₂SO₄?",
+        options: ["HSO₄−", "SO₄²−", "H₃O+", "OH−"],
+        correct: "HSO₄−",
       },
     ],
   },
+
   {
     id: 3,
     title: "Reaction Mechanisms",
@@ -49,7 +51,7 @@ const quizzesData = [
           "Radical chain mechanism",
           "Proton transfer mechanism",
         ],
-        answer: "Bimolecular, single-step",
+        correct: "Bimolecular, single-step",
       },
     ],
   },
