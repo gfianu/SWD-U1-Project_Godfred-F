@@ -1,13 +1,26 @@
+/* ---------- Layout ---------- */
 .quiz-page {
     padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
 }
 
+/* ---------- Questions ---------- */
 .quiz-question {
     margin-bottom: 1.5rem;
 }
 
+.quiz-question h4 {
+    margin-bottom: 0.5rem;
+}
+
+.quiz-question label {
+    display:block;
+    margin-left: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+/* ---------- Options List ---------- */
 .quiz-options {
     list-style: none;
     padding: 0;
@@ -27,10 +40,20 @@
     background: var(--primary-light);
 }
 
+/* ---------- Submit Button Container ---------- */
 .quiz-submit {
     display: flex;
     justify-content: center;
     margin-top: 1.5rem;
+}
+
+/* ---------- Score Box ---------- */
+.quiz-result {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #e0ffe0;
+    border-radius: 8px;
+    font-weight: 600;
 }
 
 /* ---------- Responsive Design ---------- */
