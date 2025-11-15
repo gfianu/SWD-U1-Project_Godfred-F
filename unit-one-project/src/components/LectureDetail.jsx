@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router";
 import lecturesData from "../data/lecturesData";
+import "../styles/LectureDetail.css";
 
 function LectureDetail() {
   const { id } = useParams();
@@ -20,22 +21,42 @@ function LectureDetail() {
 
   return (
     <section className="lecture-detail container">
-      <h2>{lecture.title}</h2>
-      <p>
-        <strong>Topic:</strong> {lecture.topic}
-      </p>
-      <p>
-        <strong>Duration:</strong> {lecture.duration}
-      </p>
-      <p>{lecture.description}</p>
-      <div className="video-placeholder">
-        <p>🎥 video: {lecture.videoUrl}</p>
-      </div>
-      <button className="btn">Add Comment</button>
-      <br />
-      <Link to="/lectures" className="btn-secondary">
-        Back to All Lectures
-      </Link>
+      <header className="lecture-header">
+        <h2 className="lecture-title">{lecture.title}</h2>
+        <p className="lecture-meta">
+          <span>
+            <strong>Topic:</strong> {lecture.topic}
+          </span>
+          <span>
+            <strong>Duration:</strong> {lecture.duration}
+          </span>
+        </p>
+      </header>
+
+      <article className="lecture-description">
+        <p>{lecture.description}</p>
+      </article>
+
+      <section className="lecture-video">
+        <div className="video-placeholder">
+          <p>🎥 Video Placeholder</p>
+          <button className="btn-primary">Play Video</button>
+        </div>
+      </section>
+
+      <section className="lecture-comments">
+        <h3>Comments</h3>
+        <p className="comment-empty">
+          No comments yet. Be the first to comment!
+        </p>
+        <button className="btn">Add Comment</button>
+      </section>
+
+      <footer className="lecture-footer">
+        <Link to="/lectures" className="btn-secondary">
+          ← Back to All Lectures
+        </Link>
+      </footer>
     </section>
   );
 }

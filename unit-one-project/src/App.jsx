@@ -9,7 +9,7 @@ import Contact from "./pages/Contact";
 import LectureList from "./components/LectureList";
 import LectureDetail from "./components/LectureDetail";
 import QuizList from "./components/QuizList";
-import QuizDetail from "./components/QuizDetail";
+import QuizPage from "./components/QuizPage";
 import Dashboard from "./components/Dashboard";
 import Notes from "./pages/Notes";
 import { useState } from "react";
@@ -36,7 +36,7 @@ function App() {
           <Route path="/lectures/:id" element={<LectureDetail />} />
           <Route path="/notes" element={<Notes />} />
           <Route path="/quizzes" element={<QuizList quizzes={quizzes} />} />
-          <Route path="/quizzes/:id" element={<QuizDetail />} />
+          <Route path="/quizzes/:id" element={<QuizPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </main>
