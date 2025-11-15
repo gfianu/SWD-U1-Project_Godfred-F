@@ -21,7 +21,7 @@ function App() {
   const [quizzes, setQuizzes] = useState(quizzesData);
 
   return (
-    <>
+    <div id="body-container">
       <Header />
       <NavBar />
       <main>
@@ -41,7 +41,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
 
