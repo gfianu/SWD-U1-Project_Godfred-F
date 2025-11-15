@@ -1,0 +1,38 @@
+.home {
+    text-align: center;
+    padding: 2rem 1 rem;
+}
+
+.home-header {
+    margin-bottom: 1.5rem;
+}
+
+.home-header h1 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+}
+
+.home-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.home-buttons button {
+    min-width: 150px;
+}
+
+/* ---------- Responsive Design ---------- */
+
+@media (max-width: 768px) {
+    .home-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}

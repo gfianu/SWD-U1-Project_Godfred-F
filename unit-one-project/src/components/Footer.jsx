@@ -1,7 +1,10 @@
+import "../styles/Footer.css";
+
 function Footer() {
+  let thisYear = new Date().getFullYear();
   return (
     <footer>
-      <p>&copy; 2025 ChemLearn. All rights reserved.</p>
+      <div>&copy; {thisYear} ChemLearn. All rights reserved.</div>
     </footer>
   );
 }
