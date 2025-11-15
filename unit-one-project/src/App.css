@@ -8,8 +8,8 @@ header,
 footer {
     display: flex;
     flex-direction: column;
-    /* width: 100%; */
-    /* padding: 15px clamp(20px, 4vw, 30px) 20px; */
+    width: 100%;
+    padding: 15px clamp(20px, 4vw, 30px) 20px;
 }
 
 main {
