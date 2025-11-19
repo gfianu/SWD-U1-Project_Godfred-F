@@ -1,40 +1,40 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import "../styles/LectureList.css";
 
 function LectureList({ lectures = [] }) {
   const [search, setSearch] = useState("");
 
-  const filtered = lectures.filter(
-    (lec) =>
-      lec.title.toLowerCase().includes(search.toLowerCase()) ||
-      lec.topic.toLowerCase().includes(search.toLowerCase())
+  // Filter by title ONLY (your new data has no "topic")
+  const filtered = lectures.filter((lec) =>
+    lec.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
     <section className="lecture-list container">
-      <h2>Lecture Library</h2>
+      <h2 className="lecture-heading">Lecture Library</h2>
 
       <input
         type="text"
         className="lecture-search"
-        placeholder="Search lectures or topics..."
+        placeholder="Search lectures..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         aria-label="Search lectures"
       />
 
-      <ul>
+      <ul className="lecture-list-ul">
         {filtered.length === 0 ? (
           <li className="no-results">No lectures found.</li>
         ) : (
           filtered.map((lecture) => (
             <li key={lecture.id} className="lecture-list-item">
-              <div className="topic-links">
-                <Link to={`/lectures/${lecture.id}`} className="btn">
-                  <h3>{lecture.title}</h3>
-                </Link>
+              <div className="lecture-card">
+                <h3>{lecture.title}</h3>
 
+                <Link to={`/lectures/${lecture.id}`} className="lecture-btn">
+                  View Topic
+                </Link>
               </div>
             </li>
           ))
@@ -45,3 +45,4 @@ function LectureList({ lectures = [] }) {
 }
 
 export default LectureList;
+

@@ -12,7 +12,9 @@ export default function LectureTopicLayout() {
       <section className="lecture-not-found container">
         <h2>Lecture Not Found</h2>
         <p>The lecture you are looking for does not exist.</p>
-        <Link to="/lectures" className="btn">Back to Lectures</Link>
+        <Link to="/lectures" className="btn">
+          Back to Lectures
+        </Link>
       </section>
     );
   }
@@ -22,7 +24,6 @@ export default function LectureTopicLayout() {
 
   return (
     <div className="lecture-layout">
-
       {/* --------------------------------------------------
           LEFT SIDEBAR (Pearson style)
       -------------------------------------------------- */}
@@ -49,13 +50,10 @@ export default function LectureTopicLayout() {
           MAIN CONTENT AREA
       -------------------------------------------------- */}
       <section className="lecture-main">
-
         {/* Topic header (Pearson style title + metadata) */}
         <header className="lecture-topic-header">
           <h1 className="lecture-title">{lecture.title}</h1>
-          <p className="lecture-meta">
-            Topic: {lecture.topic} • Duration: {lecture.duration}
-          </p>
+          {/* <p className="lecture-meta">Topic: {lecture.topic}</p> */}
         </header>
 
         {/* Horizontal Pearson-style tabs */}
@@ -65,10 +63,7 @@ export default function LectureTopicLayout() {
         <main className="lecture-content-area">
           <Outlet context={{ lecture }} />
         </main>
-
       </section>
     </div>
   );
 }
-
-

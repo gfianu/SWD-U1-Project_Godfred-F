@@ -49,14 +49,16 @@ function App() {
           />
 
           {/* Topic layout with sidebar NavBar */}
-          <Route
-            path="/lectures/:id/*"
-            element={<LectureTopicLayout lectures={lecturesData} />}
-          >
-            <Route index element={<LectureContent />} />
+          <Route path="/lectures/:id/*" element={<LectureTopicLayout />}>
+            <Route index element={<LectureVideos />} /> {/* default = videos */}
             <Route path="notes" element={<LectureNotes />} />
             <Route path="videos" element={<LectureVideos />} />
             <Route path="quizzes" element={<LectureQuizzes />} />
+            {/* ⭐ NEW nested quiz route */}
+            <Route
+              path="quizzes/:quizId"
+              element={<QuizPage />}
+            />
             <Route path="dashboard" element={<LectureDashboard />} />
           </Route>
 
@@ -65,7 +67,9 @@ function App() {
 
           {/* Quizzes */}
           <Route path="/quizzes" element={<QuizList quizzes={quizzesData} />} />
-          <Route path="/quizzes/:id" element={<QuizPage />} />
+
+          {/* ⭐ Standalone global quiz route restored */}
+          <Route path="/quizzes/:quizId" element={<QuizPage />} />
 
           {/* User dashboard */}
           <Route path="/dashboard" element={<Dashboard />} />

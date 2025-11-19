@@ -4,12 +4,12 @@ import "../styles/TopicSubNav.css";
 
 // Define all secondary tabs for the topic page
 const links = [
-  { path: "", label: "Lecture" },
+  { path: "", label: "Videos" },   // default
   { path: "notes", label: "Notes" },
-  { path: "videos", label: "Videos" },
   { path: "quizzes", label: "Quizzes" },
   { path: "dashboard", label: "Dashboard" },
 ];
+
 
 export default function TopicSubNav({ basePath }) {
   const [open, setOpen] = useState(false);
