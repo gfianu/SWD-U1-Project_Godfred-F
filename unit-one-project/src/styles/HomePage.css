@@ -1,38 +1,84 @@
-.home {
-    text-align: center;
-    padding: 2rem 1 rem;
+/* HERO SECTION */
+.start-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  text-align: center;
+
+  height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd, #ffffff);
 }
 
-.home-header {
-    margin-bottom: 1.5rem;
+/* CONTENT WRAPPER */
+.start-content {
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-.home-header h1 {
-    font-size: 2rem;
-    color: var(--primary-dark);
+/* GIANT CHEMLEARN LOGO */
+.chemlearn-logo {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #004d99;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
 }
 
-.home-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
+/* TAGLINE */
+.tagline {
+  font-size: 1.25rem;
+  color: #333;
+  margin-bottom: 40px;
 }
 
-.home-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+/* GET STARTED BUTTON */
+.get-started-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  background-color: #0066cc;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.home-buttons button {
-    min-width: 150px;
+.get-started-btn:hover {
+  background-color: #0052a3;
+  transform: translateY(-3px);
 }
 
-/* ---------- Responsive Design ---------- */
-
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-    .home-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+  .chemlearn-logo {
+    font-size: 3rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
+
+  .get-started-btn {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chemlearn-logo {
+    font-size: 2.5rem;
+  }
+
+  .tagline {
+    font-size: 1rem;
+  }
+
+  .get-started-btn {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
 }

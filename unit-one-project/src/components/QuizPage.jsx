@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router";
-import quizzesData from "../data/quizzesData";
 import "../styles/QuizPage.css";
+import quizzes from "../data/quizzesData";
 
 export default function QuizPage() {
   const { id } = useParams();
-  const quiz = quizzesData.find((q) => q.id === Number(id));
+  const quiz = quizzes.find((q) => q.id === Number(id));
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
@@ -14,9 +14,9 @@ export default function QuizPage() {
 
   if (!quiz) {
     return (
-      <section className="quiz-page">
+      <section className="quiz-page container">
         <h2>Quiz Not Found</h2>
-        <Link to="/quizzes" className="btn-secondary">
+        <Link to="/quizzes" className="btn btn-ghost">
           Back to Quizzes
         </Link>
       </section>
@@ -46,12 +46,11 @@ export default function QuizPage() {
   }
 
   return (
-    <section className="quiz-page">
+    <section className="quiz-page container">
       <h2>{quiz.title}</h2>
 
       {!finished ? (
         <>
-          {/* Card wrapper matches CSS */}
           <div className="quiz-card">
             <h3>
               Question {currentIndex + 1} of {quiz.questions.length}
@@ -71,12 +70,8 @@ export default function QuizPage() {
             </ul>
           </div>
 
-          {/* Navigation uses .quiz-nav (CSS expects this) */}
           <div className="quiz-nav">
-            <button
-              onClick={handleNext}
-              disabled={!selected}
-            >
+            <button onClick={handleNext} disabled={!selected}>
               {currentIndex === quiz.questions.length - 1
                 ? "Finish Quiz"
                 : "Next"}
@@ -93,10 +88,9 @@ export default function QuizPage() {
 
           <div className="quiz-nav">
             <Link to="/quizzes">
-              <button>Back to Quizzes</button>
+              <button className="btn btn-ghost">Back to Quizzes</button>
             </Link>
-
-            <button onClick={() => window.location.reload()}>
+            <button className="btn" onClick={() => window.location.reload()}>
               Retake Quiz
             </button>
           </div>
@@ -105,4 +99,3 @@ export default function QuizPage() {
     </section>
   );
 }
-

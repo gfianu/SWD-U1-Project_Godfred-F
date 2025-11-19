@@ -1,35 +1,36 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { NavLink } from "react-router-dom";
 import "../styles/Header.css";
 
-function Header() {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header>
-      
-        {/* Placeholder for ChemLearn graphical logo */}
-        <h1>ChemLearn</h1>
+    <header className="header">
+      <div className="header-inner">
+        {/* Left: Logo */}
+        <NavLink to="/" className="header-logo">
+          ChemLearn
+        </NavLink>
 
-      <button className="hamburger" onClick={toggleMenu}>
-        &#9776;
-      </button>
+        {/* Hamburger (mobile only) */}
+        <button
+          className="hamburger"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          &#9776;
+        </button>
 
-      <nav>
-
-      <ul className={menuOpen ? "open" : ""}>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/lectures">Lectures</Link></li>
-          <li><Link to="/notes">Notes</Link></li>
-          <li><Link to="/quizzes">Quizzes</Link></li>
-          <li><Link to="/dashboard">Dashboard</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-      </ul>
-      </nav>
+        {/* Right: Navigation */}
+        <nav className={`header-nav ${menuOpen ? "open" : ""}`}>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </nav>
+      </div>
     </header>
   );
 }
-
-export default Header;

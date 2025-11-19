@@ -5,7 +5,7 @@ const lecturesData = [
     topic: "Structure and Bonding",
     duration: "12:35",
     description: "Overview of bonding theories and molecular structure in organic compounds.",
-    videoUrl: "https://www.example.com/video1", // placeholder for now
+    videoUrl: "https://www.example.com/video1",
   },
   {
     id: 2,

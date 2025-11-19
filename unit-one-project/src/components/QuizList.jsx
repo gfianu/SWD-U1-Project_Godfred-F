@@ -1,31 +1,36 @@
-import { Link } from "react-router";
-import quizzesData from "../data/quizzesData";
+import { Link, useLocation } from "react-router";
 import "../styles/QuizList.css";
 
-export default function QuizList() {
+function QuizList({ quizzes = [] }) {
+  const { search } = useLocation();
+  const topic = new URLSearchParams(search).get("topic");
+
+  const filtered = topic ? quizzes.filter((q) => q.topic === topic) : quizzes;
+
   return (
     <section className="quiz-list-page container">
-      <h2 className="quiz-list-title">Available Quizzes</h2>
+      <h2>Available Quizzes {topic ? `— ${topic}` : ""}</h2>
 
-      {quizzesData.length === 0 ? (
-        <p className="quiz-list-empty">No quizzes available yet.</p>
-      ) : (
-        <ul className="quiz-list">
-          {quizzesData.map((quiz) => (
+      <ul className="quiz-list">
+        {filtered.length === 0 ? (
+          <li className="quiz-list-empty">No quizzes found.</li>
+        ) : (
+          filtered.map((quiz) => (
             <li key={quiz.id} className="quiz-card">
-              <div className="quiz-card-body">
+              <div>
                 <h3 className="quiz-card-title">{quiz.title}</h3>
-                <p className="quiz-card-topic">{quiz.topic}</p>
+                <p className="muted">{quiz.topic}</p>
               </div>
 
               <Link to={`/quizzes/${quiz.id}`} className="btn quiz-card-btn">
                 Take Quiz
               </Link>
             </li>
-          ))}
-        </ul>
-      )}
+          ))
+        )}
+      </ul>
     </section>
   );
 }
 
+export default QuizList;
