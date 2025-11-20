@@ -92,6 +92,33 @@
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
 
+.notes-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.note-item {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.note-links {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.note-links .muted {
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+
 /* ------------------------------------------------------
    RESPONSIVE
 ------------------------------------------------------- */
