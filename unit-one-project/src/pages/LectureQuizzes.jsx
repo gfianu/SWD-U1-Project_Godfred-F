@@ -9,19 +9,21 @@ export default function LectureQuizzes() {
 
   return (
     <section>
-      <h2>Quizzes for {lecture.title}</h2>
-
       {filtered.length === 0 ? (
         <p className="muted">No quizzes available for this lecture yet.</p>
       ) : (
-        <ul>
+        <ul style={{ listStyle: "none", padding: 0 }}>
           {filtered.map((q) => (
-            <li key={q.id}>
-              <h3>{q.title}</h3>
-
-              {/* FIXED — Correct nested route */}
+            <li
+              key={q.id}
+              style={{
+                marginBottom: "1rem",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
               <Link to={`${q.id}`} className="btn">
-                Take Quiz
+                <h2>Take Quiz for {lecture.title}</h2>
               </Link>
             </li>
           ))}
@@ -30,5 +32,3 @@ export default function LectureQuizzes() {
     </section>
   );
 }
-
-

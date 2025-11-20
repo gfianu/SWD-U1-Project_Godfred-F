@@ -40,7 +40,7 @@ function About() {
         Why ChemLearn?
       </h2>
       <p style={{ lineHeight: "1.7", marginBottom: "1rem" }}>
-        Organic Chemistry can feel overwhelming—but it doesn’t have to be. ChemLearn
+        Organic Chemistry can feel overwhelming, but it doesn’t have to be. ChemLearn
         removes unnecessary confusion by presenting the subject the way experts
         understand it: through relationships, patterns, and predictable logic.
       </p>

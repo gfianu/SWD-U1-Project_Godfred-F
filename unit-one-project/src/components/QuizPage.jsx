@@ -9,14 +9,16 @@ export default function QuizPage() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
-  const [answers, setAnswers] = useState([]); // store user's answers
+  const [answers, setAnswers] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
   if (!quiz) {
     return (
       <section className="quiz-page container">
         <h2>Quiz Not Found</h2>
-        <Link to=".." className="btn btn-ghost">Back</Link>
+        <Link to=".." className="btn btn-ghost">
+          Back
+        </Link>
       </section>
     );
   }
@@ -28,7 +30,6 @@ export default function QuizPage() {
   }
 
   function handleNext() {
-    // Save answer before moving on
     const newAnswers = [...answers];
     newAnswers[currentIndex] = selected;
     setAnswers(newAnswers);
@@ -46,9 +47,27 @@ export default function QuizPage() {
 
   function handleSubmit() {
     const finalAnswers = [...answers];
-    finalAnswers[currentIndex] = selected; // store final question
+    finalAnswers[currentIndex] = selected;
     setAnswers(finalAnswers);
+
     setSubmitted(true);
+
+    // ⭐ Save quiz score + last activity
+    localStorage.setItem(
+      `quizScore_${quiz.title}`,
+      `${
+        finalAnswers.filter((ans, idx) => ans === quiz.questions[idx].correct)
+          .length
+      }/${quiz.questions.length}`
+    );
+
+    localStorage.setItem(
+      `activity_${quiz.title}`,
+      `Completed Quiz (${
+        finalAnswers.filter((ans, idx) => ans === quiz.questions[idx].correct)
+          .length
+      } correct)`
+    );
   }
 
   const score = answers.filter(
@@ -61,12 +80,10 @@ export default function QuizPage() {
 
       {!submitted ? (
         <>
-          {/* QUESTION NUMBER */}
           <p className="question-number">
             Question {currentIndex + 1} of {quiz.questions.length}
           </p>
 
-          {/* QUESTION CARD */}
           <div className="quiz-card">
             <p className="quiz-question">{currentQuestion.question}</p>
 
@@ -83,7 +100,6 @@ export default function QuizPage() {
             </ul>
           </div>
 
-          {/* NAVIGATION BUTTONS */}
           <div className="quiz-nav">
             <button
               className="btn quiz-back"
@@ -113,7 +129,6 @@ export default function QuizPage() {
           </div>
         </>
       ) : (
-        /* RESULTS SCREEN */
         <div className="quiz-result-box">
           <h2>Quiz Complete!</h2>
           <p>
@@ -154,4 +169,3 @@ export default function QuizPage() {
     </section>
   );
 }
-
