@@ -1,14 +1,9 @@
-import { useEffect } from "react";
 import { useOutletContext } from "react-router";
+import convertDriveUrl from "../utils/convertDriveUrl";
 
 export default function LectureVideos() {
   const { lecture } = useOutletContext();
   const videos = lecture.videos || [];
-
-  // Log last activity when user visits the videos tab
-  useEffect(() => {
-    localStorage.setItem(`activity_${lecture.title}`, "Viewed Videos");
-  }, [lecture.title]); // runs when switching between lecture topics
 
   return (
     <section>
@@ -19,11 +14,11 @@ export default function LectureVideos() {
       ) : (
         <ul className="video-list">
           {videos.map((v, idx) => (
-            <li key={idx} style={{ marginBottom: "2rem" }}>
-              <h3>{v.title}</h3>
+            <li key={idx} style={{ marginBottom: "2rem", listStyle: "none" }}>
+              <h3>{v.name}</h3>
 
               <iframe
-                src={v.url}
+                src={convertDriveUrl(v.url)}
                 title={v.title}
                 allowFullScreen
                 style={{
