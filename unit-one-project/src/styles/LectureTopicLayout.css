@@ -1,0 +1,110 @@
+/* ------------------------------------------------------
+   Pearson-Style Topic Layout
+------------------------------------------------------- */
+
+.lecture-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 150px); /* account for header/footer */
+  gap: 0;
+}
+
+/* ------------------------------------------------------
+   LEFT SIDEBAR
+------------------------------------------------------- */
+
+.lecture-sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e3a8a; /* deep Pearson blue */
+}
+
+.sidebar-lecture-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-link {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #1f2937;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+  transition: 0.2s;
+}
+
+.sidebar-link:hover {
+  background: #eaf2ff;
+  color: #1e3a8a;
+}
+
+/* Active lecture (highlight) */
+.sidebar-link.active {
+  background: #dbeafe;
+  color: #1e3a8a;
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------
+   MAIN CONTENT PANEL
+------------------------------------------------------- */
+
+.lecture-main {
+  padding: 2rem;
+  background: #f8fafc;
+}
+
+.lecture-topic-header {
+  margin-bottom: 1.25rem;
+}
+
+.lecture-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.lecture-meta {
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* Content area below the tabs */
+.lecture-content-area {
+  margin-top: 1.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+/* ------------------------------------------------------
+   RESPONSIVE
+------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .lecture-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .lecture-sidebar {
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}

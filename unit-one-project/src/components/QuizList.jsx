@@ -1,31 +1,31 @@
-import { Link } from "react-router";
-import quizzesData from "../data/quizzesData";
+import { Link } from "react-router-dom";
 import "../styles/QuizList.css";
 
-export default function QuizList() {
+function QuizList({ quizzes = [] }) {
   return (
     <section className="quiz-list-page container">
-      <h2 className="quiz-list-title">Available Quizzes</h2>
+      <h2>Available Quizzes</h2>
 
-      {quizzesData.length === 0 ? (
-        <p className="quiz-list-empty">No quizzes available yet.</p>
-      ) : (
-        <ul className="quiz-list">
-          {quizzesData.map((quiz) => (
+      <ul className="quiz-list">
+        {quizzes.length === 0 ? (
+          <li className="quiz-list-empty">No quizzes available.</li>
+        ) : (
+          quizzes.map((quiz) => (
             <li key={quiz.id} className="quiz-card">
-              <div className="quiz-card-body">
+              <div>
                 <h3 className="quiz-card-title">{quiz.title}</h3>
-                <p className="quiz-card-topic">{quiz.topic}</p>
               </div>
 
               <Link to={`/quizzes/${quiz.id}`} className="btn quiz-card-btn">
                 Take Quiz
               </Link>
             </li>
-          ))}
-        </ul>
-      )}
+          ))
+        )}
+      </ul>
     </section>
   );
 }
+
+export default QuizList;
 

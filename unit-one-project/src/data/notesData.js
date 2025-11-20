@@ -1,269 +1,285 @@
-const lecturesData = [
+const notesData = [
   {
     id: 1,
     title: "A Review of General Chemistry",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "A Review of General Chemistry_1",
-        url: "https://www.example.com/general_chemistry_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "A Review of General Chemistry_2",
-        url: "https://www.example.com/general_chemistry_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "A Review of General Chemistry_3",
-        url: "https://www.example.com/general_chemistry_3",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 2,
     title: "Molecular Representations",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Molecular Representations_1",
-        url: "https://www.example.com/molecular_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Molecular Representations_2",
-        url: "https://www.example.com/molecular_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Molecular Representations_3",
-        url: "https://www.example.com/molecular_3",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 3,
     title: "Acids and Bases",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Acids and Bases_1",
-        url: "https://www.example.com/acids_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Acids and Bases_2",
-        url: "https://www.example.com/acids_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Acids and Bases_3",
-        url: "https://www.example.com/acids_3",
-      },
-      {
-        id: 4,
-        name: "Acids and Bases_4",
-        url: "https://www.example.com/acids_4",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 4,
     title: "Alkanes and Cycloalkanes",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Alkanes and Cycloalkanes_1",
-        url: "https://www.example.com/alkanes_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Alkanes and Cycloalkanes_2",
-        url: "https://www.example.com/alkanes_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Alkanes and Cycloalkanes_3",
-        url: "https://www.example.com/alkanes_3",
-      },
-      {
-        id: 4,
-        name: "Alkanes and Cycloalkanes_4",
-        url: "https://www.example.com/alkanes_4",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 5,
     title: "Stereoisomerism",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Stereoisomerism_1",
-        url: "https://www.example.com/stereo_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Stereoisomerism_2",
-        url: "https://www.example.com/stereo_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Stereoisomerism_3",
-        url: "https://www.example.com/stereo_3",
-      },
-      {
-        id: 4,
-        name: "Stereoisomerism_4",
-        url: "https://www.example.com/stereo_4",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 6,
     title: "Chemical Reactions and Curved Arrows",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Chemical Reactions and Curved Arrows_1",
-        url: "https://www.example.com/curved_arrows_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Chemical Reactions and Curved Arrows_2",
-        url: "https://www.example.com/curved_arrows_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Chemical Reactions and Curved Arrows_3",
-        url: "https://www.example.com/curved_arrows_3",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 7,
-    title: "Alkyl Halides Substitution and Elimination Reactions",
-    videos: [
+    title: "Alkyl Halides — Substitution and Elimination Reactions",
+    notes: [
       {
         id: 1,
         name: "Alkyl Halides Substitution and Elimination Reactions_1",
-        url: "https://www.example.com/alkyl_halides_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Alkyl Halides Substitution and Elimination Reactions_2",
-        url: "https://www.example.com/alkyl_halides_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Alkyl Halides Substitution and Elimination Reactions_3",
-        url: "https://www.example.com/alkyl_halides_3",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 4,
         name: "Alkyl Halides Substitution and Elimination Reactions_4",
-        url: "https://www.example.com/alkyl_halides_4",
-      },
-      {
-        id: 5,
-        name: "Alkyl Halides Substitution and Elimination Reactions_5",
-        url: "https://www.example.com/alkyl_halides_5",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 8,
     title: "Reactions of Alkenes",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Reactions of Alkenes_1",
-        url: "https://www.example.com/alkenes_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Reactions of Alkenes_2",
-        url: "https://www.example.com/alkenes_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Reactions of Alkenes_3",
-        url: "https://www.example.com/alkenes_3",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 9,
     title: "Alkynes",
-    videos: [
-      { id: 1, name: "Alkynes_1", url: "https://www.example.com/alkynes_1" },
-      { id: 2, name: "Alkynes_2", url: "https://www.example.com/alkynes_2" },
-    ],
+    notes: [
+      {
+        id: 1,
+        name: "Alkynes_1",
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 10,
     title: "Radical Reactions",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Radical Reactions_1",
-        url: "https://www.example.com/radicals_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Radical Reactions_2",
-        url: "https://www.example.com/radicals_2",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 11,
     title: "Alcohols and Phenols",
-    videos: [
+    notes: [
       {
         id: 1,
         name: "Alcohols and Phenols_1",
-        url: "https://www.example.com/alcohols_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Alcohols and Phenols_2",
-        url: "https://www.example.com/alcohols_2",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 3,
         name: "Alcohols and Phenols_3",
-        url: "https://www.example.com/alcohols_3",
-      },
-    ],
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
   },
 
   {
     id: 12,
-    title: "Ethers and Epoxides Thiols and Sulfides",
-    videos: [
+    title: "Ethers and Epoxides — Thiols and Sulfides",
+    notes: [
       {
         id: 1,
         name: "Ethers and Epoxides Thiols and Sulfides_1",
-        url: "https://www.example.com/ethers_1",
+        noteUrl: "",
+        keyUrl: ""
       },
       {
         id: 2,
         name: "Ethers and Epoxides Thiols and Sulfides_2",
-        url: "https://www.example.com/ethers_2",
-      },
-    ],
-  },
+        noteUrl: "",
+        keyUrl: ""
+      }
+    ]
+  }
 ];
 
-export default lecturesData;
+export default notesData;

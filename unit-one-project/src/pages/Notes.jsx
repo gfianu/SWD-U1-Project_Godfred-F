@@ -1,10 +1,16 @@
+import { useLocation } from "react-router";
+import "../styles/Notes.css";
+
 function Notes() {
+  const { search } = useLocation();
+  const topic = new URLSearchParams(search).get("topic");
+
   return (
-    <section className="notes-page">
-      <h2>Lecture Notes</h2>
+    <section className="notes-page container">
+      <h2>Lecture Notes {topic ? `— ${topic}` : ""}</h2>
       <p>
         This section will include lecture summaries, downloadable notes, and
-        concept explanations for each topic covered in ChemLearn.
+        topic-specific material.
       </p>
     </section>
   );

@@ -1,62 +1,74 @@
 import { useState } from "react";
-import { useParams, Link } from "react-router";
-import quizzesData from "../data/quizzesData";
+import { useParams, Link } from "react-router-dom";
 import "../styles/QuizPage.css";
+import quizzes from "../data/quizzesData";
 
 export default function QuizPage() {
-  const { id } = useParams();
-  const quiz = quizzesData.find((q) => q.id === Number(id));
+  const { quizId } = useParams();
+  const quiz = quizzes.find((q) => q.id === Number(quizId));
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
-  const [score, setScore] = useState(0);
-  const [finished, setFinished] = useState(false);
+  const [answers, setAnswers] = useState([]); // store user's answers
+  const [submitted, setSubmitted] = useState(false);
 
   if (!quiz) {
     return (
-      <section className="quiz-page">
+      <section className="quiz-page container">
         <h2>Quiz Not Found</h2>
-        <Link to="/quizzes" className="btn-secondary">
-          Back to Quizzes
-        </Link>
+        <Link to=".." className="btn btn-ghost">Back</Link>
       </section>
     );
   }
 
   const currentQuestion = quiz.questions[currentIndex];
 
-  function handleSelect(option) {
-    if (selected) return; // lock answer after choosing
-    setSelected(option);
-
-    if (option === currentQuestion.correct) {
-      setScore((prev) => prev + 1);
-    }
+  function handleSelect(opt) {
+    setSelected(opt);
   }
 
   function handleNext() {
+    // Save answer before moving on
+    const newAnswers = [...answers];
+    newAnswers[currentIndex] = selected;
+    setAnswers(newAnswers);
+
     setSelected(null);
-
-    if (currentIndex === quiz.questions.length - 1) {
-      setFinished(true);
-      return;
-    }
-
     setCurrentIndex((prev) => prev + 1);
   }
 
+  function handleBack() {
+    if (currentIndex === 0) return;
+
+    setSelected(answers[currentIndex - 1] || null);
+    setCurrentIndex((prev) => prev - 1);
+  }
+
+  function handleSubmit() {
+    const finalAnswers = [...answers];
+    finalAnswers[currentIndex] = selected; // store final question
+    setAnswers(finalAnswers);
+    setSubmitted(true);
+  }
+
+  const score = answers.filter(
+    (ans, idx) => ans === quiz.questions[idx].correct
+  ).length;
+
   return (
-    <section className="quiz-page">
+    <section className="quiz-page container">
       <h2>{quiz.title}</h2>
 
-      {!finished ? (
+      {!submitted ? (
         <>
-          {/* Card wrapper matches CSS */}
+          {/* QUESTION NUMBER */}
+          <p className="question-number">
+            Question {currentIndex + 1} of {quiz.questions.length}
+          </p>
+
+          {/* QUESTION CARD */}
           <div className="quiz-card">
-            <h3>
-              Question {currentIndex + 1} of {quiz.questions.length}
-            </h3>
-            <p>{currentQuestion.question}</p>
+            <p className="quiz-question">{currentQuestion.question}</p>
 
             <ul className="quiz-options">
               {currentQuestion.options.map((opt) => (
@@ -71,19 +83,37 @@ export default function QuizPage() {
             </ul>
           </div>
 
-          {/* Navigation uses .quiz-nav (CSS expects this) */}
+          {/* NAVIGATION BUTTONS */}
           <div className="quiz-nav">
             <button
-              onClick={handleNext}
-              disabled={!selected}
+              className="btn quiz-back"
+              onClick={handleBack}
+              disabled={currentIndex === 0}
             >
-              {currentIndex === quiz.questions.length - 1
-                ? "Finish Quiz"
-                : "Next"}
+              Back
             </button>
+
+            {currentIndex === quiz.questions.length - 1 ? (
+              <button
+                className="btn quiz-next"
+                onClick={handleSubmit}
+                disabled={!selected}
+              >
+                Submit Quiz
+              </button>
+            ) : (
+              <button
+                className="btn quiz-next"
+                onClick={handleNext}
+                disabled={!selected}
+              >
+                Next
+              </button>
+            )}
           </div>
         </>
       ) : (
+        /* RESULTS SCREEN */
         <div className="quiz-result-box">
           <h2>Quiz Complete!</h2>
           <p>
@@ -91,12 +121,31 @@ export default function QuizPage() {
             <strong>{quiz.questions.length}</strong>.
           </p>
 
-          <div className="quiz-nav">
-            <Link to="/quizzes">
-              <button>Back to Quizzes</button>
-            </Link>
+          <h3 className="review-title">Review Incorrect Answers</h3>
 
-            <button onClick={() => window.location.reload()}>
+          <ul className="review-list">
+            {quiz.questions.map((q, idx) => {
+              const userAnswer = answers[idx];
+              const isCorrect = userAnswer === q.correct;
+
+              if (isCorrect) return null;
+
+              return (
+                <li key={idx} className="review-item">
+                  <p className="review-question">{q.question}</p>
+                  <p className="review-your-answer">
+                    Your answer: <strong>{userAnswer || "No answer"}</strong>
+                  </p>
+                  <p className="review-correct">
+                    Correct answer: <strong>{q.correct}</strong>
+                  </p>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="quiz-nav">
+            <button className="btn" onClick={() => window.location.reload()}>
               Retake Quiz
             </button>
           </div>
