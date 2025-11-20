@@ -1,11 +1,11 @@
 import { useParams, Link, Outlet } from "react-router-dom";
-import lectures from "../data/lecturesData";
+import lecturesData from "../data/lecturesData";
 import TopicSubNav from "../components/TopicSubNav";
 import "../styles/LectureTopicLayout.css"; // NEW stylesheet you will add
 
 export default function LectureTopicLayout() {
   const { id } = useParams();
-  const lecture = lectures.find((l) => l.id === Number(id));
+  const lecture = lecturesData.find((l) => l.id === Number(id));
 
   if (!lecture) {
     return (
@@ -25,13 +25,13 @@ export default function LectureTopicLayout() {
   return (
     <div className="lecture-layout">
       {/* --------------------------------------------------
-          LEFT SIDEBAR (Pearson style)
+          LEFT SIDEBAR 
       -------------------------------------------------- */}
       <aside className="lecture-sidebar">
         <h3 className="sidebar-title">Lectures</h3>
 
         <ul className="sidebar-lecture-list">
-          {lectures.map((lec) => (
+          {lecturesData.map((lec) => (
             <li key={lec.id}>
               <Link
                 to={`/lectures/${lec.id}`}
@@ -53,7 +53,6 @@ export default function LectureTopicLayout() {
         {/* Topic header (Pearson style title + metadata) */}
         <header className="lecture-topic-header">
           <h1 className="lecture-title">{lecture.title}</h1>
-          {/* <p className="lecture-meta">Topic: {lecture.topic}</p> */}
         </header>
 
         {/* Horizontal Pearson-style tabs */}

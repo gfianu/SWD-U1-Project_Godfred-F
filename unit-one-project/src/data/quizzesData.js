@@ -457,8 +457,8 @@ const quizzesData = [
   // 7. Alkyl Halides – Substitution and Elimination Reactions
   {
     id: 7,
-    title: "Alkyl Halides_Substitution and Elimination Reactions",
-    topic: "Alkyl Halides_Substitution and Elimination Reactions",
+    title: "Alkyl Halides Substitution and Elimination Reactions",
+    topic: "Alkyl Halides Substitution and Elimination Reactions",
     description: "Differentiate between SN1, SN2, E1, and E2 reactions of alkyl halides.",
     questions: [
       {
@@ -844,11 +844,11 @@ const quizzesData = [
     ],
   },
 
-  // 12. Ethers and Epoxides – Thiols and Sulfides
+  // 12. Ethers and Epoxides
   {
     id: 12,
-    title: "Ethers and Epoxides_Thiols and Sulfides",
-    topic: "Ethers and Epoxides_Thiols and Sulfides",
+    title: "Ethers and Epoxides",
+    topic: "Ethers and Epoxides",
     description: "Test your understanding of ether and epoxide structure and reactivity, plus thiols and sulfides.",
     questions: [
       {

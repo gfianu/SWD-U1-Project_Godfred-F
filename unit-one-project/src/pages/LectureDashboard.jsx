@@ -15,7 +15,7 @@ export default function LectureDashboard() {
   const quizCount = relatedQuizzes.length;
 
   // 🔹 Videos count (your lecturesData stores an array of videoURLs)
-  const videoCount = lecture.videoUrls ? lecture.videoUrls.length : 0;
+  const videoCount = lecture.videos ? lecture.videos.length : 0;
 
   // 🔹 Retrieve last quiz score & last activity from localStorage
   const lastQuizScore =
