@@ -2,6 +2,9 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/Header.css";
 
+// Import logo
+import ChemLearnLogo from "../assets/ChemLearnLogo.png";
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -10,7 +13,11 @@ export default function Header() {
       <div className="header-inner">
         {/* Left: Logo */}
         <NavLink to="/" className="header-logo">
-          ChemLearn
+          <img
+            src={ChemLearnLogo}
+            alt="ChemLearn Logo"
+            className="chemlearn-logo"
+          />
         </NavLink>
 
         {/* Hamburger (mobile only) */}
@@ -34,3 +41,4 @@ export default function Header() {
     </header>
   );
 }
+

@@ -47,7 +47,7 @@ function App() {
             <Route path="notes" element={<LectureNotes />} />
             <Route path="videos" element={<LectureVideos />} />
             <Route path="quizzes" element={<LectureQuizzes />} />
-            {/* ⭐ NEW nested quiz route */}
+            {/* nested quiz route */}
             <Route
               path="quizzes/:quizId"
               element={<QuizPage />}

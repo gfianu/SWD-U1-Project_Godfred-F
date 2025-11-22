@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "../components/Button";
 import "../styles/ContactPage.css";
 
 function Contact() {
@@ -23,7 +24,7 @@ function Contact() {
     e.preventDefault();
     setSubmitted(true);
 
-    // (Optional) You can connect this to an API later:
+    // (Optional) can connect this to an API later:
     // fetch("/api/contact", { method: "POST", body: JSON.stringify(formData) })
   }
 
@@ -31,8 +32,8 @@ function Contact() {
     <section className="contact-container container">
       <h1 className="contact-title">Contact ChemLearn</h1>
       <p className="contact-subtitle">
-        We'd love to hear from you! Whether you have feedback, questions,
-        or ideas for new features, feel free to reach out.
+        We'd love to hear from you! Whether you have feedback, questions, or
+        ideas for new features, feel free to reach out.
       </p>
 
       {/* Success Message */}
@@ -73,11 +74,7 @@ function Contact() {
         {/* Reason for Contact */}
         <label>
           Reason for Contact
-          <select
-            name="reason"
-            value={formData.reason}
-            onChange={handleChange}
-          >
+          <select name="reason" value={formData.reason} onChange={handleChange}>
             <option value="feedback">General Feedback</option>
             <option value="question">Ask a Question</option>
             <option value="collaboration">Collaboration Request</option>
@@ -98,13 +95,10 @@ function Contact() {
         </label>
 
         {/* Submit */}
-        <button type="submit" className="contact-submit-btn">
-          Submit Message
-        </button>
+        <Button label="Submit Message" type="submit" fullWidth={true} />
       </form>
     </section>
   );
 }
 
 export default Contact;
-

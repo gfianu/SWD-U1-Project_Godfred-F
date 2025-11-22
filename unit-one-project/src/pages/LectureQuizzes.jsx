@@ -1,10 +1,10 @@
 import { useOutletContext, Link } from "react-router-dom";
 import quizzes from "../data/quizzesData";
+import Button from "../components/Button";
 
 export default function LectureQuizzes() {
   const { lecture } = useOutletContext();
 
-  // Match quiz by exact title (quizzes use identical titles)
   const filtered = quizzes.filter((q) => q.title === lecture.title);
 
   return (
@@ -22,8 +22,11 @@ export default function LectureQuizzes() {
                 justifyContent: "center",
               }}
             >
-              <Link to={`${q.id}`} className="btn">
-                <h2>Take Quiz for {lecture.title}</h2>
+              <Link to={`${q.id}`}>
+                <Button
+                  label={`Take Quiz for ${lecture.title}`}
+                  variant="primary"
+                />
               </Link>
             </li>
           ))}
@@ -32,3 +35,4 @@ export default function LectureQuizzes() {
     </section>
   );
 }
+

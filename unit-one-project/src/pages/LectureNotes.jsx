@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { useOutletContext } from "react-router";
 import notesData from "../data/notesData";
+import Button from "../components/Button";
+import "../styles/LectureNotes.css";
 
 export default function LectureNotes() {
   const { lecture } = useOutletContext();
 
-  //Log last activity when user opens the Notes tab
   useEffect(() => {
     localStorage.setItem(`activity_${lecture.title}`, "Viewed Notes");
   }, [lecture.title]);
 
-  // 1️⃣ Find matching notes by lecture title
   const match = notesData.find(
     (entry) => entry.title.trim() === lecture.title.trim()
   );
@@ -30,33 +30,31 @@ export default function LectureNotes() {
               <h3>{note.name}</h3>
 
               <div className="note-links">
-                {/* Note PDF */}
+
                 {note.noteUrl ? (
                   <a
                     href={note.noteUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn"
                   >
-                    View Notes
+                    <Button label="View Notes" variant="primary" />
                   </a>
                 ) : (
                   <span className="muted">Notes not uploaded yet</span>
                 )}
 
-                {/* Answer Key */}
                 {note.keyUrl ? (
                   <a
                     href={note.keyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="btn btn-ghost"
                   >
-                    View Key
+                    <Button label="View Key" variant="secondary" />
                   </a>
                 ) : (
                   <span className="muted">(No key available)</span>
                 )}
+
               </div>
             </li>
           ))}
@@ -65,4 +63,5 @@ export default function LectureNotes() {
     </section>
   );
 }
+
 

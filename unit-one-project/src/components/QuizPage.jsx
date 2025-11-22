@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../styles/QuizPage.css";
 import quizzes from "../data/quizzesData";
+import Button from "./Button";
 
 export default function QuizPage() {
   const { quizId } = useParams();
@@ -52,7 +53,7 @@ export default function QuizPage() {
 
     setSubmitted(true);
 
-    // ⭐ Save quiz score + last activity
+    // Save quiz score + last activity
     localStorage.setItem(
       `quizScore_${quiz.title}`,
       `${
@@ -101,30 +102,27 @@ export default function QuizPage() {
           </div>
 
           <div className="quiz-nav">
-            <button
-              className="btn quiz-back"
+            <Button
+              label="Back"
+              variant="secondary"
               onClick={handleBack}
               disabled={currentIndex === 0}
-            >
-              Back
-            </button>
+            />
 
             {currentIndex === quiz.questions.length - 1 ? (
-              <button
-                className="btn quiz-next"
+              <Button
+                label="Submit Quiz"
+                variant="primary"
                 onClick={handleSubmit}
                 disabled={!selected}
-              >
-                Submit Quiz
-              </button>
+              />
             ) : (
-              <button
-                className="btn quiz-next"
+              <Button
+                label="Next"
+                variant="primary"
                 onClick={handleNext}
                 disabled={!selected}
-              >
-                Next
-              </button>
+              />
             )}
           </div>
         </>
@@ -160,9 +158,11 @@ export default function QuizPage() {
           </ul>
 
           <div className="quiz-nav">
-            <button className="btn" onClick={() => window.location.reload()}>
-              Retake Quiz
-            </button>
+            <Button
+              label="Retake Quiz"
+              variant="primary"
+              onClick={() => window.location.reload()}
+            />
           </div>
         </div>
       )}

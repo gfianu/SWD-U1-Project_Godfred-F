@@ -1,5 +1,8 @@
 import { useOutletContext } from "react-router";
 import convertDriveUrl from "../utils/convertDriveUrl";
+import Comments from "../components/Comments";
+import "../styles/LectureVideos.css";
+
 
 export default function LectureVideos() {
   const { lecture } = useOutletContext();
@@ -17,18 +20,16 @@ export default function LectureVideos() {
             <li key={idx} style={{ marginBottom: "2rem", listStyle: "none" }}>
               <h3>{v.name}</h3>
 
-              <iframe
-                src={convertDriveUrl(v.url)}
-                title={v.title}
-                allowFullScreen
-                style={{
-                  width: "100%",
-                  height: "360px",
-                  borderRadius: "8px",
-                  border: "1px solid #e5e7eb",
-                  marginTop: "0.5rem",
-                }}
-              />
+              <div className="video-wrapper">
+                <iframe
+                  src={convertDriveUrl(v.url)}
+                  title={v.title}
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Comments for this video */}
+              <Comments videoId={idx} lectureTitle={lecture.title} />
             </li>
           ))}
         </ul>
@@ -36,6 +37,3 @@ export default function LectureVideos() {
     </section>
   );
 }
-
-
-

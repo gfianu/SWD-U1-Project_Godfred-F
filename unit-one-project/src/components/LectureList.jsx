@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";   
 import "../styles/LectureList.css";
 
 function LectureList({ lectures = [] }) {
   const [search, setSearch] = useState("");
 
-  // Filter by title ONLY (your new data has no "topic")
   const filtered = lectures.filter((lec) =>
     lec.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -32,8 +32,11 @@ function LectureList({ lectures = [] }) {
               <div className="lecture-card">
                 <h3>{lecture.title}</h3>
 
-                <Link to={`/lectures/${lecture.id}`} className="lecture-btn">
-                  View Topic
+                <Link to={`/lectures/${lecture.id}`}>
+                  <Button 
+                    label="View Topic" 
+                    variant="primary"
+                  />
                 </Link>
               </div>
             </li>
@@ -45,4 +48,5 @@ function LectureList({ lectures = [] }) {
 }
 
 export default LectureList;
+
 

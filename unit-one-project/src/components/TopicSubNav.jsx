@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "../styles/TopicSubNav.css";
 
-// Define all secondary tabs for the topic page
+// secondary tabs for the topic page
 const links = [
   { path: "", label: "Videos" },   // default
   { path: "notes", label: "Notes" },
@@ -14,7 +14,7 @@ const links = [
 export default function TopicSubNav({ basePath }) {
   const [open, setOpen] = useState(false);
 
-  /** Ensure clean paths (avoid double slashes like /lectures/3//notes) */
+  /** Ensures clean paths (avoids double slashes like /lectures/3//notes) */
   const cleanJoin = (root, subpath) => {
     if (!subpath) return root; // for Lecture tab
     return `${root}/${subpath}`.replace(/\/+/g, "/");
@@ -29,7 +29,7 @@ export default function TopicSubNav({ basePath }) {
         aria-expanded={open}
         aria-controls="topic-subnav-list"
       >
-        ☰
+        &#9776;
       </button>
 
       {/* Tab List */}
@@ -41,7 +41,7 @@ export default function TopicSubNav({ basePath }) {
             <li key={path}>
               <NavLink
                 to={targetPath}
-                end={path === ""} // "Lecture" page should match exactly
+                end={path === ""} // "Lecture" page match 
                 className={({ isActive }) => (isActive ? "active" : undefined)}
               >
                 {label}
