@@ -53,25 +53,8 @@
   box-shadow: 0 4px 14px rgba(0,0,0,0.1);
 }
 
-/* Button */
-.lecture-btn {
-  display: inline-block;
+.lecture-card button {
   margin-top: 1rem;
-
-  background-color: var(--primary);
-  padding: 0.6rem 1.3rem;
-  border-radius: 8px;
-
-  color: white;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-
-  transition: background-color 0.25s ease;
-}
-
-.lecture-btn:hover {
-  background-color: var(--primary-dark);
 }
 
 /* No results message */

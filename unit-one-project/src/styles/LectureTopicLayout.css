@@ -1,11 +1,11 @@
 /* ------------------------------------------------------
-   Pearson-Style Topic Layout
+   Topic Layout
 ------------------------------------------------------- */
 
 .lecture-layout {
   display: grid;
   grid-template-columns: 260px 1fr;
-  min-height: calc(100vh - 150px); /* account for header/footer */
+  min-height: calc(100vh - 150px); 
   gap: 0;
 }
 
@@ -27,7 +27,7 @@
   font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #1e3a8a; /* deep Pearson blue */
+  color: #1e3a8a; 
 }
 
 .sidebar-lecture-list {
@@ -129,9 +129,45 @@
   }
 
   .lecture-sidebar {
-    height: auto;
+    height: 150px;               
+    overflow-y: auto;           
     position: relative;
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
+
+    /* Optional: Make the sidebar look like a card */
+    background: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-lecture-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar-link {
+    display: block;
+    padding: 0.6rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #1f2937;
+    text-decoration: none;
+    margin-bottom: 0.25rem;
+    transition: 0.2s;
+  }
+
+  .sidebar-link:hover {
+    background: #eaf2ff;
+    color: #1e3a8a;
+  }
+
+  .sidebar-link.active {
+    background: #dbeafe;
+    color: #1e3a8a;
+    font-weight: 600;
   }
 }
+
