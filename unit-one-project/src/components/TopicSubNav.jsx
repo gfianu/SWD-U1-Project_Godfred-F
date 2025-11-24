@@ -41,7 +41,7 @@ export default function TopicSubNav({ basePath }) {
             <li key={path}>
               <NavLink
                 to={targetPath}
-                end={path === ""} // "Lecture" page match 
+                end={path === ""} 
                 className={({ isActive }) => (isActive ? "active" : undefined)}
               >
                 {label}

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "../styles/QuizPage.css";
-import quizzes from "../data/quizzesData";
+import quizzesData from "../data/quizzesData";
 import Button from "./Button";
 
 export default function QuizPage() {
   const { quizId } = useParams();
-  const quiz = quizzes.find((q) => q.id === Number(quizId));
+  const quiz = quizzesData.find((q) => q.id === Number(quizId));
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
