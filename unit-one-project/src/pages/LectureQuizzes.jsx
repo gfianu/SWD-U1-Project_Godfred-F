@@ -1,11 +1,11 @@
 import { useOutletContext, Link } from "react-router-dom";
-import quizzes from "../data/quizzesData";
+import quizzesData from "../data/quizzesData";
 import Button from "../components/Button";
 
 export default function LectureQuizzes() {
   const { lecture } = useOutletContext();
 
-  const filtered = quizzes.filter((q) => q.title === lecture.title);
+  const filtered = quizzesData.filter((q) => q.title === lecture.title);
 
   return (
     <section>
