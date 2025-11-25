@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router-dom";
 import convertDriveUrl from "../utils/convertDriveUrl";
 import Comments from "../components/Comments";
 import "../styles/LectureVideos.css";
