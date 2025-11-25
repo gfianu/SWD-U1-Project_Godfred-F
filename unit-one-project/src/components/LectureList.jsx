@@ -1,46 +1,52 @@
 import { useState } from "react";
-import { Link } from "react-router";
-import lecturesData from "../data/lecturesData";
+import { Link } from "react-router-dom";
+import Button from "../components/Button";   
 import "../styles/LectureList.css";
 
-function LectureList() {
+function LectureList({ lectures = [] }) {
   const [search, setSearch] = useState("");
 
-  const filteredLectures = lecturesData.filter((lecture) =>
-    lecture.title.toLowerCase().includes(search.toLowerCase())
+  const filtered = lectures.filter((lec) =>
+    lec.title.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
-    <section className="lecture-list">
-      <h2>Lectures</h2>
+    <section className="lecture-list container">
+      <h2 className="lecture-heading">Lecture Library</h2>
 
-      {/* Search Bar */}
       <input
         type="text"
         className="lecture-search"
         placeholder="Search lectures..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        aria-label="Search lectures"
       />
 
-      <ul>
-        {lecturesData.map((lecture) => (
-          <li key={lecture.id}>
-            <h3>{lecture.title}</h3>
-            <p>Topic: {lecture.topic}</p>
-            <Link to={`/lectures/${lecture.id}`} className="btn">
-              View Details
-            </Link>
-          </li>
-        ))}
+      <ul className="lecture-list-ul">
+        {filtered.length === 0 ? (
+          <li className="no-results">No lectures found.</li>
+        ) : (
+          filtered.map((lecture) => (
+            <li key={lecture.id} className="lecture-list-item">
+              <div className="lecture-card">
+                <h3>{lecture.title}</h3>
 
-        {filteredLectures.length === 0 && (
-          <p className="no-results">No lectures found.</p>
+                <Link to={`/lectures/${lecture.id}`}>
+                  <Button 
+                    label="View Topic" 
+                    variant="primary"
+                  />
+                </Link>
+              </div>
+            </li>
+          ))
         )}
-
       </ul>
     </section>
   );
 }
 
 export default LectureList;
+
+
