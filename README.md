@@ -94,3 +94,4 @@ ChemLearn is under active development. Planned improvements include:
 ## About the Developer
 
 I am a college chemistry professor learning software development. I focus on building intuitive, accessible applications that make complex information easier to understand. ChemLearn represents the intersection of my teaching background and technical skill development.
+
