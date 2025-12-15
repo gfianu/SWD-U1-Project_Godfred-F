@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router-dom";
 import notesData from "../data/notesData";
 import Button from "../components/Button";
 import "../styles/LectureNotes.css";

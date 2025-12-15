@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router";
+import { useOutletContext } from "react-router-dom";
 import notesData from "../data/notesData";
 import quizzesData from "../data/quizzesData";
 import Button from "../components/Button";
